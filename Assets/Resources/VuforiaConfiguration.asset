@@ -23,7 +23,7 @@ MonoBehaviour:
     useDelayedLoadingObjectTargets: 0
     modelTargetRecoWhileExtendedTracked: 1
     version: 9.5.4
-    eulaAcceptedVersions: 
+    eulaAcceptedVersions: '{"Values":["0.0","9.5"]}'
   database:
     disableModelExtraction: 0
   videoBackground:

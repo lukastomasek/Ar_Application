@@ -6,7 +6,9 @@ public class Test : MonoBehaviour
 {
 
     [SerializeField] Animator anim;
+    [SerializeField] GameObject effect;
 
+    ParticleSystem[] _particles = null;
     const string fight_id = "attack_1";
 
     private void Start()
@@ -17,8 +19,15 @@ public class Test : MonoBehaviour
         {
             anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         }
+
+        _particles = effect.GetComponentsInChildren<ParticleSystem>();
     }
 
-    public void PlayFightAnimation() => anim.Play(fight_id);
-   
+    public void PlayFightAnimation()
+    {
+        anim.Play(fight_id);
+
+        foreach (var p in _particles)
+            p.Play();
+    }
 }

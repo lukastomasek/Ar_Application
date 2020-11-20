@@ -123,13 +123,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!43 &288795901
+--- !u!43 &22804839
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh-3700
+  m_Name: ImageTargetMesh-1226
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -141,7 +141,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.319389}
+      m_Extent: {x: 0.1, y: 0, z: 0.1}
   m_Shapes:
     vertices: []
     shapes: []
@@ -220,7 +220,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000f486a3be000000000000803f000000000000000000000000000000bf00000000f486a33e000000000000803f00000000000000000000803f0000003f00000000f486a3be000000000000803f000000000000803f000000000000003f00000000f486a33e000000000000803f000000000000803f0000803f
+    _typelessdata: 9a9999bd000000005bb13fbd000000000000803f0000000000000000000000009a9999bd000000005bb13f3d000000000000803f00000000000000000000803f9a99993d000000005bb13fbd000000000000803f000000000000803f000000009a99993d000000005bb13f3d000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -274,8 +274,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: -0, y: 0, z: -0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0, z: 0.319389}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
@@ -287,35 +287,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &465609645
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'PrestoMaterial
-
-    -3722'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 118ff498431d43f09bca405a529a7018, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,13 +372,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.9212198, y: -0.07782838, z: 0.24684006, w: 0.29045948}
+  m_LocalRotation: {x: 0.053237896, y: 0.30023694, z: -0.9522299, w: 0.016785845}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 145, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 145, y: 173.6, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb1b590c50ce4642b6ebbe6bee632f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 8826533014831864405}
+  effect: {fileID: 1740487706}
 --- !u!4 &1257799435
 Transform:
   m_ObjectHideFlags: 0
@@ -712,6 +684,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1645626571
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: '250px-Presto_CardMaterial
+
+    -1228'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 17eae3c17f20482998cdb4cb0f012e42, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
+--- !u!1 &1740487706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8826533016470003945, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
+  m_PrefabInstance: {fileID: 8826533014831864404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8826533014831864404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -719,10 +725,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1095602283, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 45.80005
-      objectReference: {fileID: 0}
     - target: {fileID: 1095602284, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -734,11 +736,11 @@ PrefabInstance:
     - target: {fileID: 8826533015191866756, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 465609645}
+      objectReference: {fileID: 1645626571}
     - target: {fileID: 8826533015191866757, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 288795901}
+      objectReference: {fileID: 22804839}
     - target: {fileID: 8826533015191866759, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -789,3 +791,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
+--- !u!95 &8826533014831864405 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8875587303565833543, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
+  m_PrefabInstance: {fileID: 8826533014831864404}
+  m_PrefabAsset: {fileID: 0}

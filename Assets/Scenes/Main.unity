@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 1257799435}
   - component: {fileID: 1257799434}
   m_Layer: 0
-  m_Name: Input
+  m_Name: Game Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -725,6 +725,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 638593621, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 638593621, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 727946128, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1476970395}
     - target: {fileID: 1095602284, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -743,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 22804839}
     - target: {fileID: 8826533015191866759, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 8826533015191866759, guid: f2c5abef81ac2be43b0ced31027818af, type: 3}
       propertyPath: m_LocalPosition.y

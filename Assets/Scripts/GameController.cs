@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-
     [SerializeField] Animator anim;
     [SerializeField] GameObject effect;
 

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] Slider healthSlider;
-
+    [SerializeField] Animator anim;
     public float CurrentHealth { get; set; }
-    const float maxHealth = 100f;
+    [SerializeField] [Range(10f, 100f)] float maxHealth = 100f;
 
     delegate void OnDied();
     event OnDied ondied;
@@ -20,7 +21,7 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        ondied += Dead;    
+        ondied += Dead;
     }
 
     private void OnDisable()
@@ -32,12 +33,17 @@ public class Health : MonoBehaviour
     {
         CurrentHealth = maxHealth;
         healthSlider.value = CurrentHealth;
+        healthSlider.maxValue = CurrentHealth;
+        healthSlider.normalizedValue = CurrentHealth;
     }
 
     public void DealDamage(float damage)
     {
+        CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, maxHealth);
         CurrentHealth -= damage;
-        healthSlider.normalizedValue = CurrentHealth;
+        healthSlider.value = CurrentHealth;
+
+     
 
         if (CurrentHealth <= 0f)
         {
@@ -49,7 +55,14 @@ public class Health : MonoBehaviour
     {
         // show ui
         // restart level
-        Time.timeScale = 0f;
+        anim.Play("die");
+        //Time.timeScale = 0f;
+        Invoke("DisableSystems", 4f);
+    }
+    
+    void DisableSystems()
+    {
+        anim.enabled = false;
     }
 
 }

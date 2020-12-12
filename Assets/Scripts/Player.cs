@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using LukasScripts;
 
 public class Player : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _helperClass = new HelperClass();
-        _health = GetComponent<Health>();
+        _health = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Health>();
     }
 
     public void Attack_1()
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
         GetDamage = _helperClass.DealDamage(minDamage, maxDamage);
         _health.DealDamage(GetDamage);
         Debug.Log($"<color=green> dealed damage : {GetDamage} </color>");
+        GameplayAudio.instance.PlayAttackSound();
         onDamage?.Invoke();
     }
 
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         _health.DealDamage(GetDamage);
         GetDamage = _helperClass.DealDamage(minDamage, maxDamage);
         Debug.Log($"<color=green> dealed damage : {GetDamage} </color>");
+        GameplayAudio.instance.PlayAttackSound();
         onDamage?.Invoke();
     }
 
@@ -49,6 +52,7 @@ public class Player : MonoBehaviour
         GetDamage = _helperClass.DealDamage(minDamage, maxDamage);
         _health.DealDamage(GetDamage);
         Debug.Log($"<color=green> dealed damage : {GetDamage} </color>");
+        GameplayAudio.instance.PlayAttackSound();
         onDamage?.Invoke();
     }
 

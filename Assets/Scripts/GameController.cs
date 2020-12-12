@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameController : MonoBehaviour
 
     ParticleSystem[] _particles = null;
     const string fight_id = "attack_1";
+
 
     private void Start()
     {

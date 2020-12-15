@@ -7,9 +7,12 @@ using DG.Tweening;
 public class Health : MonoBehaviour
 {
     [SerializeField] Slider healthSlider;
-    [SerializeField] Animator anim;
+    public Animator anim;
     public float CurrentHealth { get; set; }
     [SerializeField] [Range(10f, 100f)] float maxHealth = 100f;
+    GameController _gameController;
+
+    public bool Died { get; private set; }
 
     delegate void OnDied();
     event OnDied ondied;
@@ -31,6 +34,7 @@ public class Health : MonoBehaviour
 
     public void StartHealth()
     {
+        _gameController = GameController.instance;
         CurrentHealth = maxHealth;
         healthSlider.value = CurrentHealth;
         healthSlider.maxValue = CurrentHealth;
@@ -43,7 +47,7 @@ public class Health : MonoBehaviour
         CurrentHealth -= damage;
         healthSlider.value = CurrentHealth;
 
-     
+
 
         if (CurrentHealth <= 0f)
         {
@@ -53,16 +57,27 @@ public class Health : MonoBehaviour
 
     public void Dead()
     {
-        // show ui
-        // restart level
         anim.Play("die");
-        //Time.timeScale = 0f;
         Invoke("DisableSystems", 4f);
+        Died = true;
+        Debug.Log("dead");
     }
-    
+
     void DisableSystems()
     {
+        _gameController.ending.SetActive(true);
         anim.enabled = false;
+        
+        if (!_gameController.playerWon)
+        {
+            _gameController.winTxt.text = "YOU WON !";
+            _gameController.winTxt.color = Color.green;
+        }
+        else
+        {
+            _gameController.winTxt.text = "YOU LOSE !";
+            _gameController.winTxt.color = Color.red;
+        }
     }
 
 }

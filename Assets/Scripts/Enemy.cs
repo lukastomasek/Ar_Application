@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using LukasScripts;
+using System;
 
 public class Enemy : MonoBehaviour
 {
     Animator _anim;
     HelperClass _helperClass;
-    Health _health;
+
+    public static Action onEnemyTurn;
+
+    [HideInInspector]
+    public Health health;
+
+    [SerializeField] ParticleSystem[] effect;
 
     [Space]
     [Header("Settings")]
@@ -16,6 +23,7 @@ public class Enemy : MonoBehaviour
 
     public float GetDamage { get; private set; }
 
+    public bool EnemysTurn { get; set; }
 
     private void OnEnable()
     {
@@ -29,29 +37,23 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        EnemysTurn = false;
         _anim = GetComponent<Animator>();
         _helperClass = new HelperClass();
-        _health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
     }
 
-    void Attack()
+    public void Attack()
     {
-        int random = _helperClass.RandomNumber(0, 2);
+        //int random = _helperClass.RandomNumber(0, 2);
+        Debug.Log("enemy attacking");
+        _anim.Play("attack_1");
+        GetDamage = _helperClass.DealDamage(minDamage, maxDamage);
+        health.DealDamage(GetDamage);
 
-        if (random == 1)
-        {
-            _anim.Play("attack_1");
-            GetDamage = _helperClass.DealDamage(minDamage, maxDamage);
-            _health.DealDamage(GetDamage);
-        }
-        else
-        {
-            _anim.Play("attack_2");
-            GetDamage = _helperClass.DealDamage(minDamage, maxDamage);
-            _health.DealDamage(GetDamage);
-        }
     }
 
+  
 
     void GetHurt()
     {
@@ -60,6 +62,9 @@ public class Enemy : MonoBehaviour
 
     public void PlayAttackEffect()
     {
+        GameplayAudio.instance.PlayButtonSound();
 
+        foreach (var p in effect)
+            p.Play();
     }
 }

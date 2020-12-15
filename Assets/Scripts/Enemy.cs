@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
 
     public static Action onEnemyTurn;
 
+    [SerializeField] Health myHealth;
+
     [HideInInspector]
     public Health health;
 
@@ -25,6 +27,9 @@ public class Enemy : MonoBehaviour
 
     public bool EnemysTurn { get; set; }
 
+    [HideInInspector]
+    public bool isDead;
+
     private void OnEnable()
     {
         Player.onDamage += GetHurt;
@@ -35,28 +40,37 @@ public class Enemy : MonoBehaviour
         Player.onDamage -= GetHurt;
     }
 
+    public void CheckIfEnemyDied()
+    {
+        Debug.Log("ENEMY DIED");
+        isDead = true;
+    }
+
     private void Start()
     {
         EnemysTurn = false;
         _anim = GetComponent<Animator>();
         _helperClass = new HelperClass();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        myHealth = GetComponent<Health>();
     }
 
     public void Attack()
     {
+        if (myHealth.CurrentHealth <= 0) return;
         //int random = _helperClass.RandomNumber(0, 2);
         Debug.Log("enemy attacking");
         _anim.Play("attack_1");
         GetDamage = _helperClass.DealDamage(minDamage, maxDamage);
         health.DealDamage(GetDamage);
-
+        PlayAttackEffect();
     }
 
-  
+
 
     void GetHurt()
     {
+        if (myHealth.CurrentHealth <= 0) return;
         _anim.Play("panic");
     }
 

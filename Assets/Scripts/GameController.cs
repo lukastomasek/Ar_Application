@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Vuforia;
 
 
-public enum GameTurns
-{
-    playerTurn, OponentTurn
-};
+
 
 public class GameController : MonoBehaviour
 {
@@ -21,7 +17,6 @@ public class GameController : MonoBehaviour
 
     [HideInInspector] public bool playerWon = false;
 
-    TargetFinder finder;
     private void Awake()
     {
 #if UNITY_EDITOR
@@ -44,12 +39,15 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
-    void SearchForTarget()
+    private void Update()
     {
-       
+        if (ending.gameObject.activeInHierarchy)
+        {
+            CheckEnding();
+        }
     }
 
     public void EnemyTurn()
@@ -59,13 +57,17 @@ public class GameController : MonoBehaviour
 
     public void CheckEnding()
     {
-        if (enemy.health.anim.enabled == false)
+        if (enemy.isDead)
         {
-            playerWon = false;
+            winTxt.text = "YOU WON !";
+            winTxt.color = Color.green;
         }
         else
         {
-            playerWon = true;
+
+            winTxt.text = "YOU LOSE !";
+            winTxt.color = Color.red;
+
         }
     }
 

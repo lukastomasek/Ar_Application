@@ -20,6 +20,8 @@ public class MenuController : MonoBehaviour
             loadingScreen = FindObjectOfType<LoadingScreen>();
 
         levels.SetActive(false);
+
+        Time.timeScale = 1f;
     }
 
     private void OnEnable()

@@ -11,7 +11,6 @@ public class Health : MonoBehaviour
     public float CurrentHealth { get; set; }
     [SerializeField] [Range(10f, 100f)] float maxHealth = 100f;
     GameController _gameController;
-
     public bool Died { get; private set; }
 
     delegate void OnDied();
@@ -47,8 +46,6 @@ public class Health : MonoBehaviour
         CurrentHealth -= damage;
         healthSlider.value = CurrentHealth;
 
-
-
         if (CurrentHealth <= 0f)
         {
             ondied?.Invoke();
@@ -58,26 +55,14 @@ public class Health : MonoBehaviour
     public void Dead()
     {
         anim.Play("die");
-        Invoke("DisableSystems", 4f);
-        Died = true;
-        Debug.Log("dead");
+       Invoke("DisableSystems", 4f);
     }
 
     void DisableSystems()
     {
         _gameController.ending.SetActive(true);
-        anim.enabled = false;
-        
-        if (!_gameController.playerWon)
-        {
-            _gameController.winTxt.text = "YOU WON !";
-            _gameController.winTxt.color = Color.green;
-        }
-        else
-        {
-            _gameController.winTxt.text = "YOU LOSE !";
-            _gameController.winTxt.color = Color.red;
-        }
+        Time.timeScale = 0;
+        //anim.enabled = false;
     }
 
 }
